@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-green: #00ff95;
+  --color-brand-blue: #00c3ff;
+  --color-glass: rgba(255, 255, 255, 0.05);
+  --color-glass-border: rgba(255, 255, 255, 0.08);
+}
+
+@layer base {
+  body {
+    @apply bg-[#050505] text-white overflow-x-hidden font-sans;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-glass backdrop-blur-xl border border-glass-border;
+  }
+
+  .glow {
+    box-shadow: 0 0 40px rgba(0, 255, 150, 0.25);
+  }
+
+  .hero-gradient {
+    background: 
+      radial-gradient(circle at top right, rgba(0, 255, 149, 0.25), transparent 30%),
+      radial-gradient(circle at bottom left, rgba(0, 170, 255, 0.15), transparent 30%),
+      #050505;
+  }
+
+  .input {
+    @apply bg-white/5 border border-white/10 text-white transition-all duration-300;
+  }
+
+  .input:focus {
+    @apply outline-none border-brand-green ring-4 ring-brand-green/20;
+  }
+
+  .btn-primary {
+    @apply bg-linear-to-r from-brand-green to-brand-blue text-black font-bold transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(0,255,149,0.4)] active:scale-95;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .transform-3d {
+    transform-style: preserve-3d;
+  }
+}
