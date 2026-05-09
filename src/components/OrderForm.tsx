@@ -26,7 +26,7 @@ export default function OrderForm() {
       `*الجرعة:* ${dosage}%0A` +
       `*المنتج:* NICORETTE 30 Gums`;
 
-    const whatsappUrl = `https://wa.me/212623061621?text=${message}`;
+    const whatsappUrl = `https://wa.me/212612236863?text=${message}`;
     
     // Open WhatsApp
     window.open(whatsappUrl, "_blank");

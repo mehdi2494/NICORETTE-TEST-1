@@ -123,16 +123,16 @@ export default function ProductDetails() {
               الجرعة المناسبة
             </h3>
             <div className="grid gap-8" style={{ transform: "translateZ(30px)" }}>
-              <div className="bg-white/5 border border-white/10 p-10 rounded-[40px] flex items-center gap-10 hover:bg-white/10 transition-all group">
+              <div className="bg-white/5 border border-white/10 p-6 sm:p-10 rounded-[40px] flex flex-col sm:flex-row items-center gap-6 sm:gap-10 hover:bg-white/10 transition-all group">
                 <div className="bg-white text-black px-10 py-5 rounded-3xl font-black text-5xl shadow-2xl group-hover:scale-110 transition-transform">2mg</div>
-                <div>
+                <div className="text-center sm:text-right">
                   <p className="font-black text-3xl mb-2">للناس لي يدخن قل من 20</p>
                   <p className="text-gray-400 text-xl font-medium tracking-wide">سيجارة فاليوم. (ما تفوتش 30 لكل نهار)</p>
                 </div>
               </div>
-              <div className="bg-white/5 border border-white/10 p-10 rounded-[40px] flex items-center gap-10 hover:bg-white/10 transition-all group">
+              <div className="bg-white/5 border border-white/10 p-6 sm:p-10 rounded-[40px] flex flex-col sm:flex-row items-center gap-6 sm:gap-10 hover:bg-white/10 transition-all group">
                 <div className="bg-orange-500 text-white px-10 py-5 rounded-3xl font-black text-5xl shadow-2xl group-hover:scale-110 transition-transform">4mg</div>
-                <div>
+                <div className="text-center sm:text-right">
                   <p className="font-black text-3xl mb-2">للناس لي يدخن أكثر من 20</p>
                   <p className="text-gray-400 text-xl font-medium tracking-wide">سيجارة فاليوم. (ما تفوتش 15 لكل نهار)</p>
                 </div>
@@ -193,9 +193,9 @@ export default function ProductDetails() {
               ))}
             </div>
             <p className="text-3xl italic text-gray-200 leading-relaxed mb-6 font-medium">
-              &quot;استعملت هادو مع اللصاقات (patches) و بجوج عاونوني بزاف. ملي تنحس برغبة كنعلك وحدة وهاديك الرغبة كبرد، كنصحكم بيهم.&quot;
+              &quot;بصراحة هاد العلكة ديال نيكوريت عاوناتني بزاف باش نقطع الكارو. غير كتحس بالرغبة كتكمي كتاخد وحدة وكتمشي ديك اللهفة، كنصح گاع لي بغا يتهنى من التدخين يبدا بها.&quot;
             </p>
-            <span className="font-black text-brand-green text-2xl uppercase tracking-widest">Ahmed M. - verified customer</span>
+            <span className="font-black text-brand-green text-2xl uppercase tracking-widest">Hamza - verified customer</span>
           </div>
         </motion.div>
       </ThreeDTilt>
