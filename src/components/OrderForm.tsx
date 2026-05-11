@@ -140,46 +140,46 @@ export default function OrderForm() {
 
             {/* Form Fields */}
             <div className="space-y-6" style={{ transform: "translateZ(30px)" }}>
-              <div className="relative group">
-                <User className="absolute right-6 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-brand-green w-6 h-6 transition-colors" />
+              <div className="relative group text-right">
+                <User className="absolute right-6 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-brand-green w-6 h-6 transition-colors z-10" />
                 <input
                   type="text"
                   name="الاسم"
                   placeholder="الاسم الكامل"
                   required
-                  className="w-full bg-white/5 border-2 border-white/10 rounded-3xl pr-16 pl-8 py-7 text-xl focus:border-brand-green focus:outline-none transition-all placeholder:text-gray-600 font-bold"
+                  className="w-full bg-white/5 border-2 border-white/10 rounded-3xl pr-16 pl-8 py-7 text-xl focus:border-brand-green focus:outline-none transition-all placeholder:text-gray-600 font-bold text-right"
                 />
               </div>
 
-              <div className="relative group">
-                <Phone className="absolute right-6 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-brand-green w-6 h-6 transition-colors" />
+              <div className="relative group text-right">
+                <Phone className="absolute right-6 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-brand-green w-6 h-6 transition-colors z-10" />
                 <input
                   type="tel"
                   name="رقم الهاتف"
                   placeholder="رقم الهاتف"
                   required
-                  className="w-full bg-white/5 border-2 border-white/10 rounded-3xl pr-16 pl-8 py-7 text-xl focus:border-brand-green focus:outline-none transition-all placeholder:text-gray-600 font-bold"
+                  className="w-full bg-white/5 border-2 border-white/10 rounded-3xl pr-16 pl-8 py-7 text-xl focus:border-brand-green focus:outline-none transition-all placeholder:text-gray-600 font-bold text-right"
                 />
               </div>
 
-              <div className="relative group">
-                <MapPin className="absolute right-6 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-brand-green w-6 h-6 transition-colors" />
+              <div className="relative group text-right">
+                <MapPin className="absolute right-6 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-brand-green w-6 h-6 transition-colors z-10" />
                 <input
                   type="text"
                   name="المدينة"
                   placeholder="المدينة"
                   required
-                  className="w-full bg-white/5 border-2 border-white/10 rounded-3xl pr-16 pl-8 py-7 text-xl focus:border-brand-green focus:outline-none transition-all placeholder:text-gray-600 font-bold"
+                  className="w-full bg-white/5 border-2 border-white/10 rounded-3xl pr-16 pl-8 py-7 text-xl focus:border-brand-green focus:outline-none transition-all placeholder:text-gray-600 font-bold text-right"
                 />
               </div>
 
-              <div className="relative group">
+              <div className="relative group text-right">
                 <textarea
                   name="العنوان"
                   placeholder="العنوان الكامل"
                   required
                   rows={4}
-                  className="w-full bg-white/5 border-2 border-white/10 rounded-3xl px-8 py-7 text-xl focus:border-brand-green focus:outline-none transition-all placeholder:text-gray-600 font-bold resize-none"
+                  className="w-full bg-white/5 border-2 border-white/10 rounded-3xl px-8 py-7 text-xl focus:border-brand-green focus:outline-none transition-all placeholder:text-gray-600 font-bold resize-none text-right"
                 ></textarea>
               </div>
             </div>

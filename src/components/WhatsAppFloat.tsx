@@ -5,7 +5,7 @@ export default function WhatsAppFloat() {
   return (
     <motion.a
       href="https://wa.me/212612236863?text=سلام، بغيت نطلب NICORETTE"
-      className="fixed bottom-8 left-8 z-50 group"
+      className="fixed bottom-28 lg:bottom-8 right-8 z-50 group"
       initial={{ scale: 0 }}
       animate={{ scale: 1 }}
       whileHover={{ scale: 1.1 }}

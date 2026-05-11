@@ -26,10 +26,10 @@ const features = [
 ];
 
 const steps = [
-  "علكها حتى تحس بمذاق قوي ولا شوية ديال التنميل.",
-  "حطها بين حنكك واللثة لمدة 10 دقايق باش تطلق النيكوتين.",
-  "ملي يبرد المذاق، عاود علكها بشوية (تقريبا 20 مرة في 20 دقيقة).",
-  "خلي العلكة فمك مدة 30 دقيقة فالمجموع باش تستافد منها كاملة.",
+  "علكها بشوية حتى يولي المذاق قوي (أو تحس بتنميل).",
+  "حط العلكة بين حنكك واللثة وخليها ترتاح.",
+  "ملي يبرد المذاق، عاود علكها بشوية. كمل بهاد الطريقة لمدة 30 دقيقة تقريبا.",
+  "من بعد هاد الوقت، العلكة غتفقد المفعول ديالها، تخلص منها بطريقة مناسبة.",
 ];
 
 export default function ProductDetails() {
@@ -70,25 +70,25 @@ export default function ProductDetails() {
           >
             <div className="absolute top-0 right-0 w-64 h-64 bg-brand-green/10 blur-[100px] rounded-full -translate-y-1/2 translate-x-1/2"></div>
             
-            <div className="grid lg:grid-cols-2 gap-16 items-center relative z-10">
+            <div className="grid lg:grid-cols-2 gap-16 items-center relative z-10 text-right">
               <div>
-                <h3 className="text-5xl lg:text-7xl font-black mb-12 flex items-center gap-6" style={{ transform: "translateZ(40px)" }}>
-                  <Clock className="w-16 h-16 text-brand-green" />
+                <h3 className="text-4xl sm:text-5xl lg:text-7xl font-black mb-12 flex items-center justify-end gap-6" style={{ transform: "translateZ(40px)" }}>
                   كيفاش تستعملها؟
+                  <Clock className="w-16 h-16 text-brand-green" />
                 </h3>
                 <div className="space-y-10" style={{ transform: "translateZ(30px)" }}>
                   {steps.map((step, i) => (
-                    <div key={i} className="flex gap-8 items-start group/step">
+                    <div key={i} className="flex gap-8 items-start group/step flex-row-reverse">
                       <div className="w-14 h-14 rounded-2xl bg-brand-green text-black font-black flex items-center justify-center flex-shrink-0 text-3xl shadow-[0_0_30px_rgba(0,255,149,0.4)] group-hover/step:scale-110 transition-transform">
                         {i + 1}
                       </div>
-                      <p className="text-2xl lg:text-3xl text-gray-200 leading-relaxed pt-1 font-medium select-none">{step}</p>
+                      <p className="text-xl sm:text-2xl lg:text-3xl text-gray-200 leading-relaxed pt-1 font-medium select-none w-full">{step}</p>
                     </div>
                   ))}
                 </div>
-                <div className="mt-14 glass p-10 rounded-[40px] border-brand-blue/20 bg-brand-blue/10 backdrop-blur-3xl shadow-xl" style={{ transform: "translateZ(50px)" }}>
-                  <p className="text-brand-blue text-xl font-black flex items-center gap-5">
-                    <Info className="w-8 h-8 flex-shrink-0" />
+                <div className="mt-14 glass p-10 rounded-[40px] border-brand-blue/20 bg-brand-blue/10 backdrop-blur-3xl shadow-xl flex flex-row-reverse gap-5 text-right" style={{ transform: "translateZ(50px)" }}>
+                  <Info className="w-8 h-8 flex-shrink-0 text-brand-blue mt-1" />
+                  <p className="text-brand-blue text-xl font-black">
                     بروتوكول فعال: ما تفوتش 30 دقيقة فالعلكة حيت مداقها كيمشي موراها وما كيبقاش إفراز للنيكوتين.
                   </p>
                 </div>
@@ -99,8 +99,8 @@ export default function ProductDetails() {
                 style={{ transform: "translateZ(60px)" }}
               >
                 <img 
-                  src="input_file_1.png" 
-                  alt="Usage Illustration"
+                  src="https://images.ctfassets.net/f3tkdizvrgki/5jR0iBLt4raZ4wnKvKssqG/0d609cea179441b3be2aa0bb904f214d/NIC_CA_CA_60245367542_8595205_621513_Fruit_Gum_2mg_105ct_00180.jpg?fm=webp&w=640" 
+                  alt="Nicorette Fruit Chill"
                   className="rounded-[60px] shadow-[0_60px_120px_rgba(0,0,0,0.6)] border border-white/20 brightness-110"
                 />
                 <div className="absolute inset-0 rounded-[60px] bg-linear-to-tr from-brand-green/20 to-transparent pointer-events-none"></div>
@@ -114,27 +114,27 @@ export default function ProductDetails() {
       <div className="grid lg:grid-cols-2 gap-12 mt-24">
         <ThreeDTilt>
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
+            initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             className="glass p-12 rounded-[60px] border-white/10 shadow-2xl h-full bg-white/[0.03]"
           >
-            <h3 className="text-4xl font-black mb-12 border-r-8 border-brand-green pr-8 flex items-center gap-4" style={{ transform: "translateZ(40px)" }}>
+            <h3 className="text-4xl font-black mb-12 border-l-8 border-brand-green pl-8 flex items-center gap-4" style={{ transform: "translateZ(40px)" }}>
               الجرعة المناسبة
             </h3>
             <div className="grid gap-8" style={{ transform: "translateZ(30px)" }}>
-              <div className="bg-white/5 border border-white/10 p-6 sm:p-10 rounded-[40px] flex flex-col sm:flex-row items-center gap-6 sm:gap-10 hover:bg-white/10 transition-all group">
+              <div className="bg-white/5 border border-white/10 p-6 sm:p-10 rounded-[40px] flex flex-col sm:flex-row-reverse items-center gap-6 sm:gap-10 hover:bg-white/10 transition-all group text-right">
                 <div className="bg-white text-black px-10 py-5 rounded-3xl font-black text-5xl shadow-2xl group-hover:scale-110 transition-transform">2mg</div>
-                <div className="text-center sm:text-right">
-                  <p className="font-black text-3xl mb-2">للناس لي يدخن قل من 20</p>
-                  <p className="text-gray-400 text-xl font-medium tracking-wide">سيجارة فاليوم. (ما تفوتش 30 لكل نهار)</p>
+                <div className="w-full">
+                  <p className="font-black text-3xl mb-2">للناس لي كيكميو 20 سيجارة أو أقل</p>
+                  <p className="text-gray-400 text-xl font-medium tracking-wide">علكة وحدة 2mg ملي تحس بالرغبة. (ما تفوتش 30 علكة فاليوم)</p>
                 </div>
               </div>
-              <div className="bg-white/5 border border-white/10 p-6 sm:p-10 rounded-[40px] flex flex-col sm:flex-row items-center gap-6 sm:gap-10 hover:bg-white/10 transition-all group">
+              <div className="bg-white/5 border border-white/10 p-6 sm:p-10 rounded-[40px] flex flex-col sm:flex-row-reverse items-center gap-6 sm:gap-10 hover:bg-white/10 transition-all group text-right">
                 <div className="bg-orange-500 text-white px-10 py-5 rounded-3xl font-black text-5xl shadow-2xl group-hover:scale-110 transition-transform">4mg</div>
-                <div className="text-center sm:text-right">
-                  <p className="font-black text-3xl mb-2">للناس لي يدخن أكثر من 20</p>
-                  <p className="text-gray-400 text-xl font-medium tracking-wide">سيجارة فاليوم. (ما تفوتش 15 لكل نهار)</p>
+                <div className="w-full">
+                  <p className="font-black text-3xl mb-2">للناس لي كيكميو أكثر من 20 سيجارة</p>
+                  <p className="text-gray-400 text-xl font-medium tracking-wide">علكة وحدة 4mg ملي تحس بالرغبة. (ما تفوتش 15 علكة فاليوم)</p>
                 </div>
               </div>
             </div>
@@ -144,25 +144,25 @@ export default function ProductDetails() {
         {/* PROGRAM */}
         <ThreeDTilt>
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
+            initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             className="glass p-12 rounded-[60px] border-white/10 shadow-2xl h-full bg-brand-green/[0.03]"
           >
-            <h3 className="text-4xl font-black mb-12 border-r-8 border-brand-blue pr-8" style={{ transform: "translateZ(40px)" }}>
+            <h3 className="text-4xl font-black mb-12 border-l-8 border-brand-blue pl-8" style={{ transform: "translateZ(40px)" }}>
               برنامج التوقف
             </h3>
             <div className="space-y-8" style={{ transform: "translateZ(30px)" }}>
-              <div className="flex gap-6 group hover:translate-x-2 transition-transform">
-                <div className="mt-1 bg-brand-green/20 p-2 rounded-xl"><Check className="text-brand-green w-8 h-8" /></div>
+              <div className="flex gap-6 group hover:translate-x-[-8px] transition-transform flex-row-reverse text-right">
+                <div className="mt-1 bg-brand-green/20 p-2 rounded-xl h-fit"><Check className="text-brand-green w-8 h-8" /></div>
                 <p className="text-2xl leading-relaxed font-medium">خد علكة كل مرة حسيتي برغبة فالتدخين (بمعدل 8 لـ 12 فاليوم فالمرحلة الأولى).</p>
               </div>
-              <div className="flex gap-6 group hover:translate-x-2 transition-transform">
-                <div className="mt-1 bg-brand-green/20 p-2 rounded-xl"><Check className="text-brand-green w-8 h-8" /></div>
+              <div className="flex gap-6 group hover:translate-x-[-8px] transition-transform flex-row-reverse text-right">
+                <div className="mt-1 bg-brand-green/20 p-2 rounded-xl h-fit"><Check className="text-brand-green w-8 h-8" /></div>
                 <p className="text-2xl leading-relaxed font-medium">نقص عدد العلكات تدريجياً كل أسبوع حتى توصل لـ 1 أو 2 فاليوم.</p>
               </div>
-              <div className="flex gap-6 group hover:translate-x-2 transition-transform">
-                <div className="mt-1 bg-brand-green/20 p-2 rounded-xl"><Check className="text-brand-green w-8 h-8" /></div>
+              <div className="flex gap-6 group hover:translate-x-[-8px] transition-transform flex-row-reverse text-right">
+                <div className="mt-1 bg-brand-green/20 p-2 rounded-xl h-fit"><Check className="text-brand-green w-8 h-8" /></div>
                 <p className="text-2xl leading-relaxed font-medium">بإمكانك تعويض السجائر السهلة بالعلكة كأول خطوة فالتوقف التدريجي.</p>
               </div>
             </div>
@@ -181,9 +181,9 @@ export default function ProductDetails() {
           <div className="absolute top-0 left-0 w-32 h-32 bg-brand-green/20 blur-[60px] rounded-full"></div>
           <div className="w-40 h-40 rounded-[40px] overflow-hidden flex-shrink-0 border-4 border-brand-green/20 rotate-3 group-hover:rotate-0 transition-transform duration-500 shadow-2xl" style={{ transform: "translateZ(50px)" }}>
             <img
-              src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=400&auto=format&fit=crop"
+              src="https://scontent.fcmn1-2.fna.fbcdn.net/v/t39.30808-6/564632082_3268301370011076_2625162393052835416_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=53a332&_nc_eui2=AeHNCWaD57d3xEEJ-uJN7CsB19zWGUrRb2rX3NYZStFvag88R1ffdeM9iw5epP9bZaiZSrQafNzIIqflKjOG_h29&_nc_ohc=g3rK21E_XBwQ7kNvwFGHnhc&_nc_oc=Adr40erZbt7L27Ul4GS5-qELPsH3IgBpctppjbu3PjKuBbk_KCodDbPTITrETwYAq5c&_nc_zt=23&_nc_ht=scontent.fcmn1-2.fna&_nc_gid=FC2XL8SQMvIiFMq2G9butA&_nc_ss=7f2a8&oh=00_Af7y0Rts2vCAbfseHCIpzuOYcbUsBDIkK7re7i05F0beGw&oe=6A078F39"
               className="w-full h-full object-cover"
-              alt="Customer"
+              alt="Hamza - Verified Customer"
             />
           </div>
           <div className="text-center md:text-right relative z-10" style={{ transform: "translateZ(40px)" }}>

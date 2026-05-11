@@ -1,10 +1,39 @@
 import { motion } from "motion/react";
-import { CheckCircle2, MessageCircle, ArrowDown } from "lucide-react";
+import { CheckCircle2, MessageCircle, ArrowDown, ChevronRight, ChevronLeft } from "lucide-react";
 import ThreeDTilt from "./ThreeDTilt";
+import { useRef, useState } from "react";
 
 export default function Hero() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [activeIdx, setActiveIdx] = useState(0);
+  const images = [
+    "https://www.pharmaly-dz.com/wp-content/uploads/2026/03/nicorette-gommes-2mg-menthe-glacial-15-u-1-1.png",
+    "https://media.pharmaciedesdrakkars.com/media/images/products/w-1280-h-1280-zc-2-nicorette-gommes-2-mg-sans-sucre-nicorettes-3400937630986-presentation-30-gommes-5d1cac79ed884-0000.jpg.webp",
+    "https://images.ctfassets.net/f3tkdizvrgki/72jIMlj0GRRhygyxf1oPMn/7c45a7316b90e384ae63073f1018c2cb/NIC_CA_CA_62600945419_8596105_620807_Mint_Gum_4mg_105ct_00180.jpg?fm=webp&w=3840"
+  ];
+
+  const scrollTo = (idx: number) => {
+    if (scrollRef.current) {
+      const container = scrollRef.current;
+      const child = container.children[idx] as HTMLElement;
+      if (child) {
+        child.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+        setActiveIdx(idx);
+      }
+    }
+  };
+
+  const handleScroll = () => {
+    if (scrollRef.current) {
+      const scrollPos = Math.abs(scrollRef.current.scrollLeft);
+      const width = scrollRef.current.offsetWidth;
+      const idx = Math.round(scrollPos / width);
+      setActiveIdx(idx);
+    }
+  };
+
   return (
-    <section className="max-w-7xl mx-auto px-6 py-12 lg:py-20 relative overflow-hidden">
+    <section className="max-w-7xl mx-auto px-6 py-24 lg:py-32 relative overflow-hidden">
       {/* Background Orbs for Depth */}
       <div className="absolute top-[10%] left-[-10%] w-[400px] h-[400px] bg-brand-green/10 blur-[120px] rounded-full animate-pulse pointer-events-none"></div>
       <div className="absolute bottom-[20%] right-[-10%] w-[300px] h-[300px] bg-brand-blue/10 blur-[100px] rounded-full animate-bounce-slow pointer-events-none"></div>
@@ -12,9 +41,10 @@ export default function Hero() {
       <div className="grid lg:grid-cols-2 gap-16 items-center relative z-10">
         {/* TEXT */}
         <motion.div
-          initial={{ opacity: 0, x: -50 }}
+          initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
+          className="text-right"
         >
           <div className="glass inline-flex items-center gap-2 px-5 py-2 rounded-full text-sm font-medium mb-8">
             <span className="relative flex h-2 w-2">
@@ -27,15 +57,15 @@ export default function Hero() {
           <h1 className="text-5xl lg:text-8xl font-black leading-tight tracking-tight">
             ماشي عيب تكون تدخن...
             <br />
-            <span className="text-brand-green drop-shadow-[0_0_20px_rgba(0,255,149,0.5)] text-6xl lg:text-9xl">العيب هو تبقى.</span>
+            <span className="text-brand-green drop-shadow-[0_0_20px_rgba(0,255,149,0.5)] text-6xl lg:text-9xl tracking-tighter">العيب هو تبقى.</span>
           </h1>
 
-          <p className="text-gray-300 mt-10 text-xl lg:text-2xl leading-loose max-w-xl">
+          <p className="text-gray-300 mt-10 text-xl lg:text-2xl leading-loose max-w-xl ml-auto">
             <span className="font-bold text-white">NICORETTE</span> كيساعدك تنقص التدخين بطريقة تدريجية وعملية.
             آلاف المغاربة بداو حياة جديدة، دابا دورك!
           </p>
 
-          <div className="flex gap-5 mt-12 flex-wrap">
+          <div className="flex gap-5 mt-12 flex-wrap justify-start lg:justify-start flex-row-reverse">
             <a
               href="#order"
               className="btn-primary px-12 py-5 rounded-2xl text-2xl flex items-center gap-3 group"
@@ -50,8 +80,8 @@ export default function Hero() {
               rel="noopener noreferrer"
               className="glass px-10 py-5 rounded-2xl font-bold flex items-center gap-3 hover:bg-white/10 transition-all text-xl"
             >
-              <MessageCircle className="w-7 h-7 text-brand-green fill-brand-green/20" />
               واتساب
+              <MessageCircle className="w-7 h-7 text-brand-green fill-brand-green/20" />
             </a>
           </div>
 
@@ -63,11 +93,11 @@ export default function Hero() {
               "منتج أصلي 100%",
               "دعم فني 24/7",
             ].map((text) => (
-              <div key={text} className="glass p-5 rounded-3xl flex items-center gap-4 group hover:bg-white/10 transition-colors">
+              <div key={text} className="glass p-5 rounded-3xl flex items-center gap-4 group hover:bg-white/10 transition-colors flex-row-reverse">
                 <div className="bg-brand-green/10 p-2 rounded-xl group-hover:bg-brand-green group-hover:text-black transition-all">
                   <CheckCircle2 className="w-6 h-6" />
                 </div>
-                <span className="font-bold text-lg">{text}</span>
+                <span className="font-bold text-lg text-right w-full">{text}</span>
               </div>
             ))}
           </div>
@@ -75,7 +105,7 @@ export default function Hero() {
 
         {/* PRODUCT VISUAL */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
+          initial={{ opacity: 0, scale: 0.8, rotate: 5 }}
           animate={{ opacity: 1, scale: 1, rotate: 0 }}
           transition={{ duration: 1, delay: 0.2 }}
           className="relative flex justify-center"
@@ -83,12 +113,12 @@ export default function Hero() {
           <ThreeDTilt className="w-full max-w-[500px]">
             <div className="glass glow rounded-[60px] p-10 lg:p-12 relative z-10 border-white/15 bg-white/[0.03] backdrop-blur-3xl shadow-[0_50px_100px_rgba(0,0,0,0.5)]">
               <div className="relative group perspective-1000">
-                <div className="flex overflow-x-auto snap-x snap-mandatory no-scrollbar gap-4 pb-4">
-                  {[
-                    "input_file_0.png",
-                    "input_file_1.png",
-                    "input_file_2.png"
-                  ].map((src, idx) => (
+                <div 
+                  ref={scrollRef}
+                  onScroll={handleScroll}
+                  className="flex overflow-x-auto snap-x snap-mandatory no-scrollbar gap-4 pb-4"
+                >
+                  {images.map((src, idx) => (
                     <div key={idx} className="snap-center shrink-0 w-full">
                       <img
                         src={src}
@@ -100,14 +130,34 @@ export default function Hero() {
                     </div>
                   ))}
                 </div>
+
+                {/* Carousel Controls */}
+                <button 
+                  onClick={() => scrollTo(activeIdx - 1)}
+                  disabled={activeIdx === 0}
+                  className="absolute left-4 top-1/2 -translate-y-1/2 glass p-3 rounded-full z-40 opacity-0 group-hover:opacity-100 transition-opacity disabled:opacity-0"
+                >
+                  <ChevronLeft className="w-6 h-6" />
+                </button>
+                <button 
+                  onClick={() => scrollTo(activeIdx + 1)}
+                  disabled={activeIdx === images.length - 1}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 glass p-3 rounded-full z-40 opacity-0 group-hover:opacity-100 transition-opacity disabled:opacity-0"
+                >
+                  <ChevronRight className="w-6 h-6" />
+                </button>
                 
                 <div className="absolute -top-10 -right-10 bg-brand-green text-black font-black px-10 py-5 rounded-[30px] shadow-[0_20px_50px_rgba(0,255,149,0.4)] transform rotate-12 text-3xl z-30" style={{ transform: "translateZ(120px) rotateZ(12deg)" }}>
                   وفر 161 DH
                 </div>
 
                 <div className="flex justify-center gap-3 mt-6">
-                  {[0, 1, 2].map((i) => (
-                    <div key={i} className="w-3 h-3 rounded-full bg-brand-green/30"></div>
+                  {images.map((_, i) => (
+                    <button 
+                      key={i} 
+                      onClick={() => scrollTo(i)}
+                      className={`w-3 h-3 rounded-full transition-all duration-300 ${activeIdx === i ? 'bg-brand-green w-8' : 'bg-brand-green/30'}`}
+                    ></button>
                   ))}
                 </div>
               </div>

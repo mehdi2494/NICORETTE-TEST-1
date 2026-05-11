@@ -7,14 +7,51 @@ import Hero from "./components/Hero";
 import ProductDetails from "./components/ProductDetails";
 import OrderForm from "./components/OrderForm";
 import WhatsAppFloat from "./components/WhatsAppFloat";
+import Navbar from "./components/Navbar";
+import FAQ from "./components/FAQ";
+import { motion, AnimatePresence } from "motion/react";
+import { useEffect, useState } from "react";
+import { ShoppingCart } from "lucide-react";
 
 export default function App() {
+  const [showSticky, setShowSticky] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowSticky(window.scrollY > 800);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <main className="min-h-screen hero-gradient selection:bg-brand-green/30">
+    <main dir="rtl" className="min-h-screen hero-gradient selection:bg-brand-green/30">
+      <Navbar />
       <Hero />
       <ProductDetails />
       <OrderForm />
+      <FAQ />
       
+      {/* Sticky Mobile CTA */}
+      <AnimatePresence>
+        {showSticky && (
+          <motion.div
+            initial={{ y: 100 }}
+            animate={{ y: 0 }}
+            exit={{ y: 100 }}
+            className="fixed bottom-6 left-6 right-6 z-40 lg:hidden"
+          >
+            <a
+              href="#order"
+              className="btn-primary w-full py-4 rounded-2xl flex items-center justify-center gap-3 text-xl font-black shadow-[0_20px_50px_rgba(0,255,149,0.4)]"
+            >
+              <ShoppingCart className="w-6 h-6" />
+              اطلب دابا
+            </a>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* Small Footer */}
       <footer className="py-12 text-center text-gray-500 border-t border-white/5 mx-6">
         <p className="text-sm font-medium">
