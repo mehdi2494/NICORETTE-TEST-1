@@ -8,8 +8,8 @@ export default function Hero() {
   const [activeIdx, setActiveIdx] = useState(0);
   const images = [
     "https://www.pharmaly-dz.com/wp-content/uploads/2026/03/nicorette-gommes-2mg-menthe-glacial-15-u-1-1.png",
-    "https://media.pharmaciedesdrakkars.com/media/images/products/w-1280-h-1280-zc-2-nicorette-gommes-2-mg-sans-sucre-nicorettes-3400937630986-presentation-30-gommes-5d1cac79ed884-0000.jpg.webp",
-    "https://images.ctfassets.net/f3tkdizvrgki/72jIMlj0GRRhygyxf1oPMn/7c45a7316b90e384ae63073f1018c2cb/NIC_CA_CA_62600945419_8596105_620807_Mint_Gum_4mg_105ct_00180.jpg?fm=webp&w=3840"
+    "https://media.pharmaciedesdrakkars.com/media/images/products/w-800-h-800-zc-2-nicorette-gommes-2-mg-sans-sucre-nicorettes-3400937630986-presentation-30-gommes-5d1cac79ed884-0000.jpg.webp", // Changed w-1280 to w-800
+    "https://images.ctfassets.net/f3tkdizvrgki/72jIMlj0GRRhygyxf1oPMn/7c45a7316b90e384ae63073f1018c2cb/NIC_CA_CA_62600945419_8596105_620807_Mint_Gum_4mg_105ct_00180.jpg?fm=webp&w=800" // Changed w-3840 to w-800
   ];
 
   const scrollTo = (idx: number) => {
@@ -58,10 +58,10 @@ export default function Hero() {
             توصيل مجاني لجميع المدن المغربية 🇲🇦
           </div>
 
-          <h1 className="text-5xl lg:text-8xl font-black leading-tight tracking-tight">
+          <h1 className="text-4xl sm:text-5xl lg:text-8xl font-black leading-tight tracking-tight">
             ماشي عيب تكون تدخن...
             <br />
-            <span className="text-brand-green drop-shadow-[0_0_20px_rgba(0,255,149,0.5)] text-6xl lg:text-9xl tracking-tighter">العيب هو تبقى.</span>
+            <span className="text-brand-green drop-shadow-[0_0_20px_rgba(0,255,149,0.5)] text-5xl sm:text-6xl lg:text-9xl tracking-tighter">العيب هو تبقى.</span>
           </h1>
 
           <p className="text-gray-300 mt-10 text-xl lg:text-2xl leading-loose max-w-xl ml-auto">
@@ -120,14 +120,14 @@ export default function Hero() {
                 <div 
                   ref={scrollRef}
                   onScroll={handleScroll}
-                  className="flex overflow-x-auto snap-x snap-mandatory no-scrollbar pb-4"
+                  className="flex overflow-x-auto snap-x snap-mandatory no-scrollbar pb-4 overscroll-contain"
                 >
                   {images.map((src, idx) => (
                     <div key={idx} className="snap-center shrink-0 w-full min-w-full flex justify-center">
                       <img
                         src={src}
                         alt={`NICORETTE Product ${idx + 1}`}
-                        className="w-full rounded-[40px] shadow-2xl brightness-110 border border-white/20 object-contain aspect-square bg-white/5"
+                        className="w-full rounded-[40px] shadow-2xl brightness-110 border border-white/20 object-contain aspect-square bg-white/10"
                         referrerPolicy="no-referrer"
                         loading={idx === 0 ? "eager" : "lazy"}
                         decoding={idx === 0 ? "sync" : "async"}
