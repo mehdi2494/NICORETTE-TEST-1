@@ -95,13 +95,14 @@ export default function ProductDetails() {
               </div>
               <motion.div 
                 whileHover={{ scale: 1.05 }}
-                className="relative transition-all duration-700"
+                className="relative transition-all duration-700 h-full"
                 style={{ transform: "translateZ(60px)" }}
               >
                 <img 
                   src="https://images.ctfassets.net/f3tkdizvrgki/5jR0iBLt4raZ4wnKvKssqG/0d609cea179441b3be2aa0bb904f214d/NIC_CA_CA_60245367542_8595205_621513_Fruit_Gum_2mg_105ct_00180.jpg?fm=webp&w=640" 
                   alt="Nicorette Fruit Chill"
-                  className="rounded-[60px] shadow-[0_60px_120px_rgba(0,0,0,0.6)] border border-white/20 brightness-110"
+                  className="rounded-[60px] shadow-[0_60px_120px_rgba(0,0,0,0.6)] border border-white/20 brightness-110 object-contain w-full bg-white/5"
+                  referrerPolicy="no-referrer"
                 />
                 <div className="absolute inset-0 rounded-[60px] bg-linear-to-tr from-brand-green/20 to-transparent pointer-events-none"></div>
               </motion.div>

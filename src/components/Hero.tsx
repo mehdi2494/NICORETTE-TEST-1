@@ -17,6 +17,7 @@ export default function Hero() {
       const container = scrollRef.current;
       const child = container.children[idx] as HTMLElement;
       if (child) {
+        // scrollIntoView is generally robust for RTL
         child.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
         setActiveIdx(idx);
       }
@@ -25,10 +26,13 @@ export default function Hero() {
 
   const handleScroll = () => {
     if (scrollRef.current) {
-      const scrollPos = Math.abs(scrollRef.current.scrollLeft);
-      const width = scrollRef.current.offsetWidth;
+      const container = scrollRef.current;
+      const scrollPos = Math.abs(container.scrollLeft);
+      const width = container.clientWidth;
       const idx = Math.round(scrollPos / width);
-      setActiveIdx(idx);
+      if (idx !== activeIdx && idx >= 0 && idx < images.length) {
+        setActiveIdx(idx);
+      }
     }
   };
 
@@ -116,15 +120,16 @@ export default function Hero() {
                 <div 
                   ref={scrollRef}
                   onScroll={handleScroll}
-                  className="flex overflow-x-auto snap-x snap-mandatory no-scrollbar gap-4 pb-4"
+                  className="flex overflow-x-auto snap-x snap-mandatory no-scrollbar pb-4"
                 >
                   {images.map((src, idx) => (
-                    <div key={idx} className="snap-center shrink-0 w-full">
+                    <div key={idx} className="snap-center shrink-0 w-full min-w-full flex justify-center">
                       <img
                         src={src}
                         alt={`NICORETTE Product ${idx + 1}`}
-                        className="w-full rounded-[40px] shadow-2xl brightness-110 border border-white/20 object-cover aspect-square"
+                        className="w-full rounded-[40px] shadow-2xl brightness-110 border border-white/20 object-contain aspect-square bg-white/5"
                         referrerPolicy="no-referrer"
+                        loading={idx === 0 ? "eager" : "lazy"}
                         style={{ transform: "translateZ(80px)" }}
                       />
                     </div>
