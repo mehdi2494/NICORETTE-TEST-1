@@ -17,10 +17,17 @@ export default function App() {
   const [showSticky, setShowSticky] = useState(false);
 
   useEffect(() => {
+    let ticking = false;
     const handleScroll = () => {
-      setShowSticky(window.scrollY > 800);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setShowSticky(window.scrollY > 800);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 

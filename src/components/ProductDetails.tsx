@@ -103,6 +103,8 @@ export default function ProductDetails() {
                   alt="Nicorette Fruit Chill"
                   className="rounded-[60px] shadow-[0_60px_120px_rgba(0,0,0,0.6)] border border-white/20 brightness-110 object-contain w-full bg-white/5"
                   referrerPolicy="no-referrer"
+                  loading="lazy"
+                  decoding="async"
                 />
                 <div className="absolute inset-0 rounded-[60px] bg-linear-to-tr from-brand-green/20 to-transparent pointer-events-none"></div>
               </motion.div>
@@ -185,6 +187,8 @@ export default function ProductDetails() {
               src="https://scontent.fcmn1-2.fna.fbcdn.net/v/t39.30808-6/564632082_3268301370011076_2625162393052835416_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=53a332&_nc_eui2=AeHNCWaD57d3xEEJ-uJN7CsB19zWGUrRb2rX3NYZStFvag88R1ffdeM9iw5epP9bZaiZSrQafNzIIqflKjOG_h29&_nc_ohc=g3rK21E_XBwQ7kNvwFGHnhc&_nc_oc=Adr40erZbt7L27Ul4GS5-qELPsH3IgBpctppjbu3PjKuBbk_KCodDbPTITrETwYAq5c&_nc_zt=23&_nc_ht=scontent.fcmn1-2.fna&_nc_gid=FC2XL8SQMvIiFMq2G9butA&_nc_ss=7f2a8&oh=00_Af7y0Rts2vCAbfseHCIpzuOYcbUsBDIkK7re7i05F0beGw&oe=6A078F39"
               className="w-full h-full object-cover"
               alt="Hamza - Verified Customer"
+              loading="lazy"
+              decoding="async"
             />
           </div>
           <div className="text-center md:text-right relative z-10" style={{ transform: "translateZ(40px)" }}>

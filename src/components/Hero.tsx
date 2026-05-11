@@ -130,6 +130,7 @@ export default function Hero() {
                         className="w-full rounded-[40px] shadow-2xl brightness-110 border border-white/20 object-contain aspect-square bg-white/5"
                         referrerPolicy="no-referrer"
                         loading={idx === 0 ? "eager" : "lazy"}
+                        decoding={idx === 0 ? "sync" : "async"}
                         style={{ transform: "translateZ(80px)" }}
                       />
                     </div>

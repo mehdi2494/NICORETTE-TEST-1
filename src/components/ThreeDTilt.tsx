@@ -43,6 +43,7 @@ export default function ThreeDTilt({ children, className = "" }: Props) {
         rotateY,
         rotateX,
         transformStyle: "preserve-3d",
+        willChange: "transform",
       }}
       className={`relative ${className}`}
     >

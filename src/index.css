@@ -18,6 +18,11 @@
   body {
     @apply bg-brand-dark text-white font-sans antialiased overflow-x-hidden;
   }
+
+  section {
+    content-visibility: auto;
+    contain-intrinsic-size: 0 500px;
+  }
 }
 
 @layer components {
