@@ -4,10 +4,13 @@ import ThreeDTilt from "./ThreeDTilt";
 import { useState, FormEvent } from "react";
 
 export default function OrderForm() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setIsSubmitting(true);
+    
     const formData = new FormData(e.currentTarget);
     
     const name = formData.get("الاسم");
@@ -28,11 +31,21 @@ export default function OrderForm() {
 
     const whatsappUrl = `https://wa.me/212623061621?text=${message}`;
     
-    // Open WhatsApp
-    window.open(whatsappUrl, "_blank");
+    // Track click if needed here
     
-    // Show Thank You Page
-    setSubmitted(true);
+    // Use a small delay to show feedback
+    setTimeout(() => {
+      // For mobile reliability, it's often better to use window.location.href for WhatsApp
+      // but users might want to stay on the page to see the thank you message.
+      // So we'll try to open in a new tab first, and if it fails, redirect.
+      const win = window.open(whatsappUrl, "_blank");
+      if (!win || win.closed || typeof win.closed === 'undefined') {
+        window.location.href = whatsappUrl;
+      }
+      
+      setSubmitted(true);
+      setIsSubmitting(false);
+    }, 800);
   };
 
   if (submitted) {
@@ -82,7 +95,7 @@ export default function OrderForm() {
         <p className="text-gray-400 text-xl lg:text-2xl">الدفع عند الاستلام والتوصيل مجاني 100%</p>
       </div>
 
-      <ThreeDTilt className="z-10">
+      <div className="z-10">
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -94,7 +107,7 @@ export default function OrderForm() {
             className="space-y-10"
           >
             {/* Price Badge */}
-            <div className="flex justify-center mb-4" style={{ transform: "translateZ(60px)" }}>
+            <div className="flex justify-center mb-4">
               <div className="bg-brand-green/10 border border-brand-green/20 px-10 py-6 rounded-[40px] text-center shadow-2xl backdrop-blur-xl">
                 <span className="block text-gray-400 text-lg mb-1">الثمن الإجمالي:</span>
                 <span className="text-7xl font-black text-brand-green drop-shadow-[0_0_15px_rgba(0,255,149,0.3)]">289 DH</span>
@@ -103,7 +116,7 @@ export default function OrderForm() {
             </div>
 
             {/* Flavor Selection */}
-            <div className="space-y-6" style={{ transform: "translateZ(40px)" }}>
+            <div className="space-y-6">
               <label className="text-2xl font-black pr-4 block">اختار المذاق اللي بغيتي:</label>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
                 {["نعناع طري", "فواكه", "ثلج أبيض"].map((flavor) => (
@@ -118,7 +131,7 @@ export default function OrderForm() {
             </div>
 
             {/* Dosage Selection */}
-            <div className="space-y-6" style={{ transform: "translateZ(40px)" }}>
+            <div className="space-y-6">
               <label className="text-2xl font-black pr-4 block">اختار الجرعة:</label>
               <div className="grid grid-cols-2 gap-6">
                 <label className="cursor-pointer group">
@@ -139,15 +152,16 @@ export default function OrderForm() {
             </div>
 
             {/* Form Fields */}
-            <div className="space-y-6" style={{ transform: "translateZ(30px)" }}>
+            <div className="space-y-6">
               <div className="relative group text-right">
                 <User className="absolute right-6 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-brand-green w-6 h-6 transition-colors z-10" />
                 <input
                   type="text"
                   name="الاسم"
                   placeholder="الاسم الكامل"
+                  autoComplete="name"
                   required
-                  className="w-full bg-white/5 border-2 border-white/10 rounded-3xl pr-16 pl-8 py-7 text-xl focus:border-brand-green focus:outline-none transition-all placeholder:text-gray-600 font-bold text-right"
+                  className="w-full bg-white/5 border-2 border-white/10 rounded-3xl pr-16 pl-8 py-7 text-xl focus:border-brand-green focus:ring-0 focus:outline-none transition-all placeholder:text-gray-600 font-bold text-right"
                 />
               </div>
 
@@ -157,8 +171,9 @@ export default function OrderForm() {
                   type="tel"
                   name="رقم الهاتف"
                   placeholder="رقم الهاتف"
+                  autoComplete="tel"
                   required
-                  className="w-full bg-white/5 border-2 border-white/10 rounded-3xl pr-16 pl-8 py-7 text-xl focus:border-brand-green focus:outline-none transition-all placeholder:text-gray-600 font-bold text-right"
+                  className="w-full bg-white/5 border-2 border-white/10 rounded-3xl pr-16 pl-8 py-7 text-xl focus:border-brand-green focus:ring-0 focus:outline-none transition-all placeholder:text-gray-600 font-bold text-right"
                 />
               </div>
 
@@ -168,8 +183,9 @@ export default function OrderForm() {
                   type="text"
                   name="المدينة"
                   placeholder="المدينة"
+                  autoComplete="address-level2"
                   required
-                  className="w-full bg-white/5 border-2 border-white/10 rounded-3xl pr-16 pl-8 py-7 text-xl focus:border-brand-green focus:outline-none transition-all placeholder:text-gray-600 font-bold text-right"
+                  className="w-full bg-white/5 border-2 border-white/10 rounded-3xl pr-16 pl-8 py-7 text-xl focus:border-brand-green focus:ring-0 focus:outline-none transition-all placeholder:text-gray-600 font-bold text-right"
                 />
               </div>
 
@@ -177,22 +193,32 @@ export default function OrderForm() {
                 <textarea
                   name="العنوان"
                   placeholder="العنوان الكامل"
+                  autoComplete="street-address"
                   required
                   rows={4}
-                  className="w-full bg-white/5 border-2 border-white/10 rounded-3xl px-8 py-7 text-xl focus:border-brand-green focus:outline-none transition-all placeholder:text-gray-600 font-bold resize-none text-right"
+                  className="w-full bg-white/5 border-2 border-white/10 rounded-3xl px-8 py-7 text-xl focus:border-brand-green focus:ring-0 focus:outline-none transition-all placeholder:text-gray-600 font-bold resize-none text-right"
                 ></textarea>
               </div>
             </div>
 
             <motion.button
-              whileHover={{ scale: 1.02, y: -5 }}
-              whileTap={{ scale: 0.98 }}
+              whileHover={isSubmitting ? {} : { scale: 1.02, y: -5 }}
+              whileTap={isSubmitting ? {} : { scale: 0.98 }}
+              disabled={isSubmitting}
               type="submit"
-              className="btn-primary w-full py-8 rounded-[40px] flex items-center justify-center gap-5 text-3xl shadow-[0_20px_60px_rgba(0,255,149,0.4)]"
-              style={{ transform: "translateZ(50px)" }}
+              className={`btn-primary w-full py-8 rounded-[40px] flex items-center justify-center gap-5 text-3xl shadow-[0_20px_60px_rgba(0,255,149,0.4)] ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
             >
-              <Package className="w-9 h-9" />
-              تأكيد الطلب دابا
+              {isSubmitting ? (
+                <>
+                  <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-black"></div>
+                  جاري الإرسال...
+                </>
+              ) : (
+                <>
+                  <Package className="w-9 h-9" />
+                  تأكيد الطلب دابا
+                </>
+              )}
             </motion.button>
           </form>
 
@@ -201,7 +227,7 @@ export default function OrderForm() {
             سيتم الاتصال بك في أقل من 24 ساعة لتأكيد الطلب
           </div>
         </motion.div>
-      </ThreeDTilt>
+      </div>
     </section>
   );
 }

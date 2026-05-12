@@ -3,15 +3,17 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import Hero from "./components/Hero";
-import ProductDetails from "./components/ProductDetails";
-import OrderForm from "./components/OrderForm";
-import WhatsAppFloat from "./components/WhatsAppFloat";
-import Navbar from "./components/Navbar";
-import FAQ from "./components/FAQ";
 import { motion, AnimatePresence } from "motion/react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, lazy, Suspense } from "react";
 import { ShoppingCart } from "lucide-react";
+import Hero from "./components/Hero";
+import Navbar from "./components/Navbar";
+import WhatsAppFloat from "./components/WhatsAppFloat";
+
+// Lazy load components below the fold
+const ProductDetails = lazy(() => import("./components/ProductDetails"));
+const OrderForm = lazy(() => import("./components/OrderForm"));
+const FAQ = lazy(() => import("./components/FAQ"));
 
 export default function App() {
   const [showSticky, setShowSticky] = useState(false);
@@ -35,9 +37,12 @@ export default function App() {
     <main dir="rtl" className="min-h-screen hero-gradient selection:bg-brand-green/30">
       <Navbar />
       <Hero />
-      <ProductDetails />
-      <OrderForm />
-      <FAQ />
+      
+      <Suspense fallback={<div className="h-96 flex items-center justify-center text-gray-500">جاري التحميل...</div>}>
+        <ProductDetails />
+        <OrderForm />
+        <FAQ />
+      </Suspense>
       
       {/* Sticky Mobile CTA */}
       <AnimatePresence>

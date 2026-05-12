@@ -99,7 +99,7 @@ export default function ProductDetails() {
                 style={{ transform: "translateZ(60px)" }}
               >
                 <img 
-                  src="https://m.media-amazon.com/images/I/71xpuwcATyL._AC_SX679_.jpg" 
+                  src="https://m.media-amazon.com/images/I/71xpuwcATyL._AC_SX600_.jpg" 
                   alt="Nicorette Icy White"
                   className="rounded-[60px] shadow-[0_60px_120px_rgba(0,0,0,0.6)] border border-white/20 brightness-110 object-contain w-full bg-white/5"
                   referrerPolicy="no-referrer"
@@ -178,9 +178,9 @@ export default function ProductDetails() {
         <h3 className="text-4xl font-black text-center mb-12">صور المنتج</h3>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {[
-            "https://m.media-amazon.com/images/I/71xpuwcATyL._AC_SX679_.jpg",
-            "https://m.media-amazon.com/images/I/71bukYUQfBL._AC_SX679_.jpg",
-            "https://m.media-amazon.com/images/I/81Lt3a9naGL._AC_SX679_.jpg",
+            "https://m.media-amazon.com/images/I/71xpuwcATyL._AC_SX400_.jpg",
+            "https://m.media-amazon.com/images/I/71bukYUQfBL._AC_SX400_.jpg",
+            "https://m.media-amazon.com/images/I/81Lt3a9naGL._AC_SX400_.jpg",
             "https://m.media-amazon.com/images/S/aplus-media-library-service-media/2d10ece0-41f8-4eb2-9590-27ef5e3f07c0.__CR0,0,970,600_PT0_SX970_V1___.jpg"
           ].map((src, i) => (
             <motion.div

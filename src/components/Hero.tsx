@@ -7,9 +7,9 @@ export default function Hero() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [activeIdx, setActiveIdx] = useState(0);
   const images = [
-    "https://m.media-amazon.com/images/I/71xpuwcATyL._AC_SX679_.jpg",
-    "https://m.media-amazon.com/images/I/71bukYUQfBL._AC_SX679_.jpg",
-    "https://m.media-amazon.com/images/I/81Lt3a9naGL._AC_SX679_.jpg",
+    "https://m.media-amazon.com/images/I/71xpuwcATyL._AC_SX600_.jpg",
+    "https://m.media-amazon.com/images/I/71bukYUQfBL._AC_SX600_.jpg",
+    "https://m.media-amazon.com/images/I/81Lt3a9naGL._AC_SX600_.jpg",
     "https://m.media-amazon.com/images/S/aplus-media-library-service-media/2d10ece0-41f8-4eb2-9590-27ef5e3f07c0.__CR0,0,970,600_PT0_SX970_V1___.jpg"
   ];
 
@@ -132,6 +132,7 @@ export default function Hero() {
                         referrerPolicy="no-referrer"
                         loading={idx === 0 ? "eager" : "lazy"}
                         decoding={idx === 0 ? "sync" : "async"}
+                        fetchPriority={idx === 0 ? "high" : "auto"}
                         style={{ transform: "translateZ(80px)" }}
                       />
                     </div>
