@@ -47,7 +47,7 @@ export default function ProductDetails() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: i * 0.1 }}
+            transition={{ duration: 0.4, delay: i * 0.05 }}
             className="glass p-10 rounded-[40px] text-center hover:bg-white/10 transition-all duration-500 hover:-translate-y-2 group bg-white/[0.02]"
           >
             <div className="flex justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
@@ -63,9 +63,10 @@ export default function ProductDetails() {
       <div className="mt-24 group">
         <ThreeDTilt>
           <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
+            initial={{ opacity: 0, scale: 0.98 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.4 }}
             className="bg-white/[0.02] rounded-[60px] p-8 lg:p-20 border border-white/10 backdrop-blur-3xl relative overflow-hidden shadow-2xl"
           >
             <div className="absolute top-0 right-0 w-64 h-64 bg-brand-green/10 blur-[100px] rounded-full -translate-y-1/2 translate-x-1/2"></div>

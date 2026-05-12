@@ -48,7 +48,7 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
           className="text-right"
         >
           <div className="glass inline-flex items-center gap-2 px-5 py-2 rounded-full text-sm font-medium mb-8">
@@ -112,7 +112,7 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0, scale: 0.8, rotate: 5 }}
           animate={{ opacity: 1, scale: 1, rotate: 0 }}
-          transition={{ duration: 1, delay: 0.2 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
           className="relative flex justify-center"
         >
           <ThreeDTilt className="w-full max-w-[500px]">
