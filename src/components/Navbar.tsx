@@ -15,7 +15,7 @@ export default function Navbar() {
         <div className="flex items-center gap-4 lg:gap-8">
           <a href="#faq" className="hidden sm:block text-sm font-bold hover:text-brand-green transition-colors">أسئلة شائعة</a>
           <a href="#order" className="hidden sm:block text-sm font-bold hover:text-brand-green transition-colors">اطلب الآن</a>
-          <a href="https://wa.me/212612236863" className="glass p-2 px-4 rounded-xl flex items-center gap-2 hover:bg-white/10 transition-all">
+          <a href="https://wa.me/212623061621" className="glass p-2 px-4 rounded-xl flex items-center gap-2 hover:bg-white/10 transition-all">
             <MessageCircle className="w-5 h-5 text-brand-green" />
             <span className="font-bold text-sm hidden sm:inline">مساعدة</span>
           </a>

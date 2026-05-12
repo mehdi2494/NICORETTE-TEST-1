@@ -99,8 +99,8 @@ export default function ProductDetails() {
                 style={{ transform: "translateZ(60px)" }}
               >
                 <img 
-                  src="https://images.ctfassets.net/f3tkdizvrgki/5jR0iBLt4raZ4wnKvKssqG/0d609cea179441b3be2aa0bb904f214d/NIC_CA_CA_60245367542_8595205_621513_Fruit_Gum_2mg_105ct_00180.jpg?fm=webp&w=800" 
-                  alt="Nicorette Fruit Chill"
+                  src="https://m.media-amazon.com/images/I/71xpuwcATyL._AC_SX679_.jpg" 
+                  alt="Nicorette Icy White"
                   className="rounded-[60px] shadow-[0_60px_120px_rgba(0,0,0,0.6)] border border-white/20 brightness-110 object-contain w-full bg-white/5"
                   referrerPolicy="no-referrer"
                   loading="lazy"
@@ -171,6 +171,36 @@ export default function ProductDetails() {
             </div>
           </motion.div>
         </ThreeDTilt>
+      </div>
+
+      {/* PRODUCT GALLERY */}
+      <div className="mt-24">
+        <h3 className="text-4xl font-black text-center mb-12">صور المنتج</h3>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          {[
+            "https://m.media-amazon.com/images/I/71xpuwcATyL._AC_SX679_.jpg",
+            "https://m.media-amazon.com/images/I/71bukYUQfBL._AC_SX679_.jpg",
+            "https://m.media-amazon.com/images/I/81Lt3a9naGL._AC_SX679_.jpg",
+            "https://m.media-amazon.com/images/S/aplus-media-library-service-media/2d10ece0-41f8-4eb2-9590-27ef5e3f07c0.__CR0,0,970,600_PT0_SX970_V1___.jpg"
+          ].map((src, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              className="glass p-2 rounded-[30px] overflow-hidden aspect-square"
+            >
+              <img 
+                src={src} 
+                alt={`Nicorette Gallery ${i + 1}`} 
+                className="w-full h-full object-cover rounded-[20px] transition-transform duration-500 hover:scale-110"
+                loading="lazy"
+                decoding="async"
+              />
+            </motion.div>
+          ))}
+        </div>
       </div>
 
       {/* TESTIMONIAL */}

@@ -7,9 +7,10 @@ export default function Hero() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [activeIdx, setActiveIdx] = useState(0);
   const images = [
-    "https://www.pharmaly-dz.com/wp-content/uploads/2026/03/nicorette-gommes-2mg-menthe-glacial-15-u-1-1.png",
-    "https://media.pharmaciedesdrakkars.com/media/images/products/w-800-h-800-zc-2-nicorette-gommes-2-mg-sans-sucre-nicorettes-3400937630986-presentation-30-gommes-5d1cac79ed884-0000.jpg.webp", // Changed w-1280 to w-800
-    "https://images.ctfassets.net/f3tkdizvrgki/72jIMlj0GRRhygyxf1oPMn/7c45a7316b90e384ae63073f1018c2cb/NIC_CA_CA_62600945419_8596105_620807_Mint_Gum_4mg_105ct_00180.jpg?fm=webp&w=800" // Changed w-3840 to w-800
+    "https://m.media-amazon.com/images/I/71xpuwcATyL._AC_SX679_.jpg",
+    "https://m.media-amazon.com/images/I/71bukYUQfBL._AC_SX679_.jpg",
+    "https://m.media-amazon.com/images/I/81Lt3a9naGL._AC_SX679_.jpg",
+    "https://m.media-amazon.com/images/S/aplus-media-library-service-media/2d10ece0-41f8-4eb2-9590-27ef5e3f07c0.__CR0,0,970,600_PT0_SX970_V1___.jpg"
   ];
 
   const scrollTo = (idx: number) => {
@@ -79,7 +80,7 @@ export default function Hero() {
             </a>
 
             <a
-              href="https://wa.me/212612236863?text=سلام، بغيت نطلب NICORETTE"
+              href="https://wa.me/212623061621?text=سلام، بغيت نطلب NICORETTE"
               target="_blank"
               rel="noopener noreferrer"
               className="glass px-10 py-5 rounded-2xl font-bold flex items-center gap-3 hover:bg-white/10 transition-all text-xl"
